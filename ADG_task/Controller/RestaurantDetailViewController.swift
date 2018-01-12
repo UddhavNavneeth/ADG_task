@@ -8,38 +8,61 @@
 
 import UIKit
 
-class RestaurantDetailViewController: UIViewController {
+class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource{
 
-   
-    var restaurant:Restaurant!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var restaurantImageView: UIImageView!
-    @IBOutlet weak var restaurantName: UILabel!
-    @IBOutlet weak var restaurantType: UILabel!
+    var restaurants:Restaurant!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        restaurantImageView.image = UIImage(named: restaurants.image)
+        tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
+        //tableView.backgroundColor = UIColor(red: 0.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.8)
+        title = restaurants.name
 
-        // Do any additional setup after loading the view.
-        
-        restaurantImageView.image = UIImage(named: restaurant.image)
-        restaurantName.text = restaurant.name
-        restaurantType.text = restaurant.type
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.hidesBarsOnSwipe = false
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    //MARK: TABLEVIEW DATASOURCE METHODS
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    */
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! RestaurantDetailTableViewCell
+        switch indexPath.row {
+        case 0:
+            cell.fieldLabel.text = "Name"
+            cell.valueLabel.text = restaurants.name
+            break
+        case 1:
+            cell.fieldLabel.text = "Type"
+            cell.valueLabel.text = restaurants.type
+            break
+        case 2:
+            cell.fieldLabel.text = "Location"
+            cell.valueLabel.text = restaurants.location
+            break
+        case 3:
+            cell.fieldLabel.text = "Been here"
+            cell.valueLabel.text = (restaurants.isVisited) ?"Yes, I've been here before" :"No"
+            break
+        default:
+            cell.fieldLabel.text = ""
+            cell.valueLabel.text = ""
+            break
+        }
+        cell.backgroundColor = UIColor.clear
+        return cell
+    }
+ 
 }

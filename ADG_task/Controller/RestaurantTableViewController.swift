@@ -44,7 +44,13 @@ class RestaurantTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
     
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.hidesBarsOnSwipe = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,6 +87,9 @@ class RestaurantTableViewController: UITableViewController {
     }
     
     //MARK: Tableview delegate methods
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
    /* override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let option = UIAlertController(title: "What do you want to do ?", message: "?", preferredStyle: .actionSheet)
@@ -141,7 +150,7 @@ class RestaurantTableViewController: UITableViewController {
         if segue.identifier == "showDetailSegue"{
             if let indexPath = tableView.indexPathForSelectedRow{
                 let destinationVc = segue.destination as! RestaurantDetailViewController
-                destinationVc.restaurant = restaurants[indexPath.row]
+                destinationVc.restaurants = restaurants[indexPath.row]
             }
         }
     }
