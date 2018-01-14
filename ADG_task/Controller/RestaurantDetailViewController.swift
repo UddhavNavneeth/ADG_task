@@ -22,6 +22,9 @@ class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UIT
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.8)
         title = restaurants.name
+        tableView.estimatedRowHeight = 36.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
 
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +38,7 @@ class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UIT
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! RestaurantDetailTableViewCell
@@ -55,6 +58,10 @@ class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UIT
         case 3:
             cell.fieldLabel.text = "Been here"
             cell.valueLabel.text = (restaurants.isVisited) ?"Yes, I've been here before" :"No"
+            break
+        case 4:
+            cell.fieldLabel.text = "Phone"
+            cell.valueLabel.text = restaurants.phoneNumber
             break
         default:
             cell.fieldLabel.text = ""

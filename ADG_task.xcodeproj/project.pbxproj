@@ -46,6 +46,7 @@
 		402B30462007DEEB00B52505 /* Data model */ = {
 			isa = PBXGroup;
 			children = (
+				402B304B2008CC1500B52505 /* Restaurant.swift */,
 				402B30442007D88000B52505 /* RestaurantTableViewCell.swift */,
 				408E9278200914F0000326C8 /* RestaurantDetailTableViewCell.swift */,
 			);
@@ -58,7 +59,6 @@
 				40C3236A200756E5004EFA49 /* AppDelegate.swift */,
 				402B30422007CC6500B52505 /* RestaurantTableViewController.swift */,
 				402B30492008AAAF00B52505 /* RestaurantDetailViewController.swift */,
-				402B304B2008CC1500B52505 /* Restaurant.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
