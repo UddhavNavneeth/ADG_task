@@ -29,6 +29,7 @@ class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UIT
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     
