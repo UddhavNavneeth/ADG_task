@@ -72,5 +72,9 @@ class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UIT
         cell.backgroundColor = UIColor.clear
         return cell
     }
+    
+    @IBAction func close(segue:UIStoryboardSegue){
+        
+    }
  
 }
