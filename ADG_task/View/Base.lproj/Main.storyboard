@@ -189,6 +189,7 @@
                         <viewLayoutGuide key="safeArea" id="T37-Sg-Wul"/>
                     </view>
                     <connections>
+                        <outlet property="ratingButton" destination="YYA-Ab-pIv" id="qyk-Pz-MJ0"/>
                         <outlet property="restaurantImageView" destination="Aje-x8-rAd" id="tkK-YZ-KPh"/>
                         <outlet property="tableView" destination="jgf-Vd-pIg" id="01C-OZ-Uxd"/>
                     </connections>
@@ -217,7 +218,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="GsB-uw-hMT">
                                 <rect key="frame" x="66" y="209" width="246" height="70"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqL-rj-Evc">
+                                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqL-rj-Evc">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -228,11 +229,14 @@
                                         <state key="normal" image="dislike"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="35"/>
+                                                <integer key="value" value="52"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ratingSelected:" destination="KFM-Kq-d1E" eventType="touchUpInside" id="N9q-d8-7YE"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qI0-Bc-bGJ">
+                                    <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qI0-Bc-bGJ">
                                         <rect key="frame" x="88" y="0.0" width="70" height="70"/>
                                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -246,8 +250,11 @@
                                                 <integer key="value" value="35"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ratingSelected:" destination="KFM-Kq-d1E" eventType="touchUpInside" id="Q06-CK-aUu"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooA-c6-B1c">
+                                    <button opaque="NO" tag="300" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooA-c6-B1c">
                                         <rect key="frame" x="176" y="0.0" width="70" height="70"/>
                                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -261,6 +268,9 @@
                                                 <integer key="value" value="35"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ratingSelected:" destination="KFM-Kq-d1E" eventType="touchUpInside" id="HPl-yU-gg8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -273,7 +283,7 @@
                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="close"/>
                                 <connections>
-                                    <segue destination="1Bo-Z9-Cdq" kind="unwind" unwindAction="closeWithSegue:" id="L2F-Gj-cvB"/>
+                                    <segue destination="1Bo-Z9-Cdq" kind="unwind" identifier="unwindToDetailView" unwindAction="closeWithSegue:" id="L2F-Gj-cvB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -296,12 +306,16 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="4fa-53-iXK" id="4kp-FW-Xhq"/>
+                        <outlet property="dislikeButton" destination="eqL-rj-Evc" id="8Im-qI-Z6S"/>
+                        <outlet property="goodButton" destination="qI0-Bc-bGJ" id="eZu-oW-TiP"/>
+                        <outlet property="greatButton" destination="ooA-c6-B1c" id="hVO-wH-qEd"/>
+                        <outlet property="ratingStackView" destination="GsB-uw-hMT" id="Ude-AV-Blm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zwz-5n-RGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1Bo-Z9-Cdq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1438" y="-2"/>
+            <point key="canvasLocation" x="1361" y="-2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="k7C-9F-p23">
