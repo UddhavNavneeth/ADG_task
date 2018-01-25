@@ -74,6 +74,13 @@ class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UIT
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMap"{
+            let destinationVc = segue.destination as! MapViewController
+            destinationVc.restaurant = restaurants
+        }
+    }
+    
     @IBAction func close(segue:UIStoryboardSegue){
         if let reviewViewController = segue.source as? ReviewViewController{
             if let rating = reviewViewController.rating{

@@ -17,6 +17,8 @@
 		40C3236B200756E5004EFA49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C3236A200756E5004EFA49 /* AppDelegate.swift */; };
 		40C32370200756E5004EFA49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C3236E200756E5004EFA49 /* Main.storyboard */; };
 		40C32375200756E5004EFA49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C32373200756E5004EFA49 /* LaunchScreen.storyboard */; };
+		40C58A4320190F8300F2A94F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C58A4220190F8300F2A94F /* MapKit.framework */; };
+		40C58A45201980CE00F2A94F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C58A44201980CE00F2A94F /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		40C3236F200756E5004EFA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40C32374200756E5004EFA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40C32376200756E6004EFA49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40C58A4220190F8300F2A94F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		40C58A44201980CE00F2A94F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40C58A4320190F8300F2A94F /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +67,7 @@
 				402B30422007CC6500B52505 /* RestaurantTableViewController.swift */,
 				402B30492008AAAF00B52505 /* RestaurantDetailViewController.swift */,
 				406AB8CC200F051A0053D8A4 /* ReviewViewController.swift */,
+				40C58A44201980CE00F2A94F /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -80,6 +86,7 @@
 			children = (
 				40C32369200756E5004EFA49 /* ADG_task */,
 				40C32368200756E5004EFA49 /* Products */,
+				40C58A4120190F8300F2A94F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +108,14 @@
 				403E95C9201735050023824A /* Media.xcassets */,
 			);
 			path = ADG_task;
+			sourceTree = "<group>";
+		};
+		40C58A4120190F8300F2A94F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40C58A4220190F8300F2A94F /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +151,11 @@
 					40C32366200756E5004EFA49 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -182,6 +202,7 @@
 				408E9279200914F0000326C8 /* RestaurantDetailTableViewCell.swift in Sources */,
 				402B304A2008AAAF00B52505 /* RestaurantDetailViewController.swift in Sources */,
 				402B30432007CC6500B52505 /* RestaurantTableViewController.swift in Sources */,
+				40C58A45201980CE00F2A94F /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
