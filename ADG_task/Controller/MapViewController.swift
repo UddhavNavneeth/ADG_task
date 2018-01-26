@@ -43,11 +43,37 @@ class MapViewController: UIViewController ,MKMapViewDelegate {
                 }
             }
         }
+        mapView.showsScale = true
+        mapView.showsTraffic = true
+        mapView.showsCompass = true
+        
     }
     
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        //
-//    }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "MyPin"
+        
+        //v this checks if we are looking at users current location if yes it will continuoue showig it the blue icon thts whil return nil
+        if annotation.isKind(of: MKUserLocation.self){
+            return nil
+        }
+        
+        //it reuses annotation for better performance
+        var annotationView : MKPinAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+        
+        //this checks if there are previous annotation to reuse if not it will make one
+        if annotationView == nil{
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.canShowCallout = true
+        }
+        
+        //adds images to left accessory view
+            let leftIconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 53, height: 53))
+                leftIconView.image = UIImage(named: restaurant.image)
+        annotationView?.leftCalloutAccessoryView = leftIconView
+        
+        annotationView?.pinTintColor = UIColor.green
+        return annotationView
+    }
 
 
 }
