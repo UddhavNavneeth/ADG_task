@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource{
 
@@ -14,10 +15,10 @@ class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UIT
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var restaurantImageView: UIImageView!
     var restaurants:Restaurant!
-    
+    let realm = try! Realm()
     override func viewDidLoad() {
         super.viewDidLoad()
-        restaurantImageView.image = UIImage(named: restaurants.image)
+        restaurantImageView.image = UIImage(data: restaurants.image!)
         tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
         //tableView.backgroundColor = UIColor(red: 0.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
         tableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -25,6 +26,7 @@ class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UIT
         title = restaurants.name
         tableView.estimatedRowHeight = 36.0
         tableView.rowHeight = UITableViewAutomaticDimension
+        ratingButton.setImage(UIImage(named:restaurants.rating), for: .normal)
         
 
     }
@@ -85,8 +87,17 @@ class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UIT
     @IBAction func close(segue:UIStoryboardSegue){
         if let reviewViewController = segue.source as? ReviewViewController{
             if let rating = reviewViewController.rating, rating != "" {
-                ratingButton.setImage(UIImage(named:rating), for: .normal)
-                  
+                if let item = restaurants {
+                    do{
+                        try realm.write {
+                            item.rating = rating
+                        }
+                    }
+                    catch{
+                        print(error)
+                    }
+                }
+                ratingButton.setImage(UIImage(named:restaurants.rating), for: .normal)
             }
         }
     }

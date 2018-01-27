@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AddRestaurantController: UITableViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate{
     
+    //MARK: Realm
+    let realm = try! Realm()
+    
+    
+    
+    //MARK: IBOutlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var typeTextField: UITextField!
@@ -70,9 +77,15 @@ class AddRestaurantController: UITableViewController ,UIImagePickerControllerDel
         return true
     }
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        print(nameTextField.text!)
-        print(typeTextField.text!)
-        print(locationTextField.text!)
+        let newItem = Restaurant()
+         newItem.name = nameTextField.text!
+         newItem.type = typeTextField.text!
+         newItem.location = locationTextField.text!
+        if let imageData = UIImageJPEGRepresentation(imageView.image!, 100){
+         newItem.image = imageData
+        }
+         newItem.isVisited = isVisited
+        save(restaurant: newItem)
         performSegue(withIdentifier: "unwindToHomeScreen", sender: self)
     }
     @IBAction func yesOrNo(_ sender: UIButton) {
@@ -88,4 +101,17 @@ class AddRestaurantController: UITableViewController ,UIImagePickerControllerDel
             isVisited = false
         }
 }
+    //MARK: Model Manipulation
+    func save(restaurant:Restaurant){
+        do{
+            try realm.write {
+                realm.add(restaurant)
+            }
+        }
+        catch{
+            print(error)
+        }
+    }
+    
+    
 }

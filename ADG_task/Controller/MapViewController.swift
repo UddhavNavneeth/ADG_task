@@ -68,7 +68,7 @@ class MapViewController: UIViewController ,MKMapViewDelegate {
         
         //adds images to left accessory view
             let leftIconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 53, height: 53))
-        leftIconView.image = UIImage(named: restaurant.image)
+        leftIconView.image = UIImage(data: restaurant.image!)
         annotationView?.leftCalloutAccessoryView = leftIconView
         
         annotationView?.pinTintColor = UIColor.green
