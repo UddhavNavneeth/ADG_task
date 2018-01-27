@@ -10,9 +10,8 @@
 		402B30432007CC6500B52505 /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B30422007CC6500B52505 /* RestaurantTableViewController.swift */; };
 		402B30452007D88000B52505 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B30442007D88000B52505 /* RestaurantTableViewCell.swift */; };
 		402B304A2008AAAF00B52505 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B30492008AAAF00B52505 /* RestaurantDetailViewController.swift */; };
-		402B304C2008CC1500B52505 /* Restaurant1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B304B2008CC1500B52505 /* Restaurant1.swift */; };
+		402B304C2008CC1500B52505 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B304B2008CC1500B52505 /* Restaurant.swift */; };
 		403E95CA201735050023824A /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 403E95C9201735050023824A /* Media.xcassets */; };
-		4065936E201C7AFD00994935 /* ADGtask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4065936C201C7AFD00994935 /* ADGtask.xcdatamodeld */; };
 		406AB8CD200F051A0053D8A4 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406AB8CC200F051A0053D8A4 /* ReviewViewController.swift */; };
 		408E9279200914F0000326C8 /* RestaurantDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408E9278200914F0000326C8 /* RestaurantDetailTableViewCell.swift */; };
 		40AA1830201AF321004C493F /* AddRestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA182F201AF321004C493F /* AddRestaurantController.swift */; };
@@ -27,9 +26,8 @@
 		402B30422007CC6500B52505 /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		402B30442007D88000B52505 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		402B30492008AAAF00B52505 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
-		402B304B2008CC1500B52505 /* Restaurant1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant1.swift; sourceTree = "<group>"; };
+		402B304B2008CC1500B52505 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		403E95C9201735050023824A /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../Media.xcassets; sourceTree = "<group>"; };
-		4065936D201C7AFD00994935 /* ADG_task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ADG_task.xcdatamodel; sourceTree = "<group>"; };
 		406AB8CC200F051A0053D8A4 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		408E9278200914F0000326C8 /* RestaurantDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailTableViewCell.swift; sourceTree = "<group>"; };
 		40AA182F201AF321004C493F /* AddRestaurantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRestaurantController.swift; sourceTree = "<group>"; };
@@ -57,10 +55,9 @@
 		402B30462007DEEB00B52505 /* Data model */ = {
 			isa = PBXGroup;
 			children = (
-				402B304B2008CC1500B52505 /* Restaurant1.swift */,
+				402B304B2008CC1500B52505 /* Restaurant.swift */,
 				402B30442007D88000B52505 /* RestaurantTableViewCell.swift */,
 				408E9278200914F0000326C8 /* RestaurantDetailTableViewCell.swift */,
-				4065936C201C7AFD00994935 /* ADGtask.xcdatamodeld */,
 			);
 			path = "Data model";
 			sourceTree = "<group>";
@@ -202,9 +199,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				40AA1830201AF321004C493F /* AddRestaurantController.swift in Sources */,
-				402B304C2008CC1500B52505 /* Restaurant1.swift in Sources */,
+				402B304C2008CC1500B52505 /* Restaurant.swift in Sources */,
 				402B30452007D88000B52505 /* RestaurantTableViewCell.swift in Sources */,
-				4065936E201C7AFD00994935 /* ADGtask.xcdatamodeld in Sources */,
 				406AB8CD200F051A0053D8A4 /* ReviewViewController.swift in Sources */,
 				40C3236B200756E5004EFA49 /* AppDelegate.swift in Sources */,
 				408E9279200914F0000326C8 /* RestaurantDetailTableViewCell.swift in Sources */,
@@ -395,19 +391,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		4065936C201C7AFD00994935 /* ADGtask.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				4065936D201C7AFD00994935 /* ADG_task.xcdatamodel */,
-			);
-			currentVersion = 4065936D201C7AFD00994935 /* ADG_task.xcdatamodel */;
-			path = ADGtask.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 40C3235F200756E5004EFA49 /* Project object */;
 }
