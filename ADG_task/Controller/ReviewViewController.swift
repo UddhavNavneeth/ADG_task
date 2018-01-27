@@ -10,14 +10,14 @@ import UIKit
 
 class ReviewViewController: UIViewController {
 
+    //MARK: IBOutlets
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var ratingStackView: UIStackView!
-    
     @IBOutlet weak var dislikeButton: UIButton!
     @IBOutlet weak var goodButton: UIButton!
     @IBOutlet weak var greatButton: UIButton!
     
-    
+    //MARK: Variables
     
     var rating:String?
     
@@ -40,6 +40,8 @@ class ReviewViewController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        //MARK: Animations
         UIView.animate(withDuration: 0.4, delay: 0.0,options: [], animations: {
             self.dislikeButton.transform = CGAffineTransform.identity
       

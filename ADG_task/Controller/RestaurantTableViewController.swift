@@ -17,19 +17,10 @@ class RestaurantTableViewController: UITableViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
          navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
         
-        //load()
         tableView.reloadData()
     
     }
@@ -37,11 +28,6 @@ class RestaurantTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.hidesBarsOnSwipe = true
         load()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -73,7 +59,9 @@ class RestaurantTableViewController: UITableViewController {
         return cell
     }
     
+    
     //MARK: Tableview delegate methods
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -105,7 +93,9 @@ class RestaurantTableViewController: UITableViewController {
         return [deleteAction,shareButton]
     }
     
+    
     //MARK: Segue properties
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetailSegue"{
             if let indexPath = tableView.indexPathForSelectedRow{
@@ -114,6 +104,7 @@ class RestaurantTableViewController: UITableViewController {
             }
         }
     }
+    
     //MARK: IBActions
     @IBAction func uwindToHomeScreen(segue:UIStoryboardSegue){
         

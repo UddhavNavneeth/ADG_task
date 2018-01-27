@@ -11,11 +11,18 @@ import RealmSwift
 
 class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource{
 
+    //MARK: IBOutlets
+    
     @IBOutlet weak var ratingButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var restaurantImageView: UIImageView!
+    
+    //MARK: Variables and Constants
+    
     var restaurants:Restaurant!
     let realm = try! Realm()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         restaurantImageView.image = UIImage(data: restaurants.image!)
@@ -76,6 +83,8 @@ class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UIT
         cell.backgroundColor = UIColor.clear
         return cell
     }
+    
+    //MARK: Segue properties
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMap"{
