@@ -154,6 +154,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="bxb-6u-Gql" id="OGr-S7-5Yt"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -188,6 +191,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="bxb-6u-Gql" id="bdR-KX-xnC"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -213,6 +219,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="bxb-6u-Gql" id="2gE-qr-u4A"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAq-AN-dP7">
                                                     <rect key="frame" x="16" y="11" width="69" height="21"/>
@@ -248,7 +257,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mC-FU-KfO">
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mC-FU-KfO">
                                                     <rect key="frame" x="16" y="40" width="46" height="46"/>
                                                     <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -257,8 +266,11 @@
                                                     <state key="normal" title="YES">
                                                         <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="yesOrNo:" destination="bxb-6u-Gql" eventType="touchUpInside" id="nRf-pO-mi0"/>
+                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDG-vK-npV">
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDG-vK-npV">
                                                     <rect key="frame" x="64" y="40" width="46" height="46"/>
                                                     <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -267,6 +279,9 @@
                                                     <state key="normal" title="NO">
                                                         <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="yesOrNo:" destination="bxb-6u-Gql" eventType="touchUpInside" id="gH9-uV-QnV"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -294,13 +309,23 @@
                     <navigationItem key="navigationItem" title="New Restaurant" id="YtV-SY-iEj">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cx7-RK-rNU">
                             <connections>
-                                <segue destination="RDt-yi-jIE" kind="unwind" unwindAction="uwindToHomeScreenWithSegue:" id="y9z-j8-XuR"/>
+                                <segue destination="RDt-yi-jIE" kind="unwind" identifier="unwindToHomeScreen" unwindAction="uwindToHomeScreenWithSegue:" id="y9z-j8-XuR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ZGU-Cv-JrF">
+                            <connections>
+                                <action selector="saveButton:" destination="bxb-6u-Gql" id="Kb6-MR-5ou"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="NVi-lH-3bH" id="Qaa-L4-caW"/>
+                        <outlet property="locationTextField" destination="UWj-NP-5WH" id="IrZ-FL-IIl"/>
+                        <outlet property="nameTextField" destination="hWM-Bi-ZF9" id="jEO-gs-4bn"/>
+                        <outlet property="noButton" destination="ZDG-vK-npV" id="FnB-WV-VYQ"/>
+                        <outlet property="typeTextField" destination="oha-nD-4lr" id="ZEU-gq-611"/>
+                        <outlet property="yesButton" destination="5mC-FU-KfO" id="DCQ-5X-LN7"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgu-Rs-J94" userLabel="First Responder" sceneMemberID="firstResponder"/>

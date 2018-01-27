@@ -8,8 +8,16 @@
 
 import UIKit
 
-class AddRestaurantController: UITableViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+class AddRestaurantController: UITableViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate{
+    
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var typeTextField: UITextField!
+    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var yesButton: UIButton!
+    @IBOutlet weak var noButton: UIButton!
+    
+    var isVisited : Bool = false
     
          let imagePicker = UIImagePickerController()
     override func viewDidLoad() {
@@ -55,4 +63,29 @@ class AddRestaurantController: UITableViewController ,UIImagePickerControllerDel
             bottomConstraint.isActive = true
         }
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        typeTextField.resignFirstResponder()
+        locationTextField.resignFirstResponder()
+        return true
+    }
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        print(nameTextField.text!)
+        print(typeTextField.text!)
+        print(locationTextField.text!)
+        performSegue(withIdentifier: "unwindToHomeScreen", sender: self)
+    }
+    @IBAction func yesOrNo(_ sender: UIButton) {
+        if sender.tag == 1{
+            yesButton.backgroundColor = UIColor.red
+            noButton.backgroundColor = UIColor.gray
+            isVisited = true
+            
+        }
+        else if sender.tag == 2{
+            yesButton.backgroundColor = UIColor.gray
+            noButton.backgroundColor = UIColor.red
+            isVisited = false
+        }
+}
 }

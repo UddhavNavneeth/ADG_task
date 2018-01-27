@@ -17,7 +17,7 @@ class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        restaurantImageView.image = UIImage(named: restaurants.image)
+        restaurantImageView.image = UIImage(data: restaurants.image! as Data)
         tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
         //tableView.backgroundColor = UIColor(red: 0.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
         tableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -59,7 +59,9 @@ class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UIT
             break
         case 3:
             cell.fieldLabel.text = "Been here"
-            cell.valueLabel.text = (restaurants.isVisited) ?"Yes, I've been here before" :"No"
+            if let isVisited = restaurants.isVisited{
+            cell.valueLabel.text = (isVisited) ?"Yes, I've been here before" :"No"
+            }
             break
         case 4:
             cell.fieldLabel.text = "Phone"
@@ -83,7 +85,7 @@ class RestaurantDetailViewController: UIViewController ,UITableViewDelegate ,UIT
     
     @IBAction func close(segue:UIStoryboardSegue){
         if let reviewViewController = segue.source as? ReviewViewController{
-            if let rating = reviewViewController.rating{
+            if let rating = reviewViewController.rating, rating != "" {
                 ratingButton.setImage(UIImage(named:rating), for: .normal)
                   
             }

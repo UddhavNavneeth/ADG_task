@@ -21,7 +21,7 @@ class MapViewController: UIViewController ,MKMapViewDelegate {
         
         
         let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(restaurant.location) { (placeMarks, error) in
+        geoCoder.geocodeAddressString(restaurant.location!) { (placeMarks, error) in
             if error != nil{
                 print(error!)
                 return
@@ -68,7 +68,7 @@ class MapViewController: UIViewController ,MKMapViewDelegate {
         
         //adds images to left accessory view
             let leftIconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 53, height: 53))
-                leftIconView.image = UIImage(named: restaurant.image)
+        leftIconView.image = UIImage(data: restaurant.image! as Data)
         annotationView?.leftCalloutAccessoryView = leftIconView
         
         annotationView?.pinTintColor = UIColor.green
