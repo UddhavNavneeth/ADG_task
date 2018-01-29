@@ -18,7 +18,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Food Pin-->
+        <!--Eat there ?-->
         <scene sceneID="dnP-9a-Tbz">
             <objects>
                 <tableViewController id="RUB-7X-CNY" customClass="RestaurantTableViewController" customModule="ADG_task" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,7 +95,7 @@
                             <outlet property="delegate" destination="RUB-7X-CNY" id="O1q-26-w73"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Food Pin" id="lF6-h9-NHi">
+                    <navigationItem key="navigationItem" title="Eat there ?" id="lF6-h9-NHi">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="siA-hn-Vco">
                             <connections>
                                 <segue destination="lqc-3Y-KQ3" kind="presentation" identifier="addRetaurant" id="Zw2-Mm-o3y"/>

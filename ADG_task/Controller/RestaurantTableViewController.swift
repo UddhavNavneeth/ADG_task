@@ -70,6 +70,12 @@ class RestaurantTableViewController: UITableViewController {
         let shareButton = UITableViewRowAction(style: .default, title: "Share") { (action, indexPath) in
             if let imageToShare = UIImage(data: self.restaurants![indexPath.row].image!) {
                   let activityController = UIActivityViewController(activityItems: [imageToShare], applicationActivities: nil)
+                if let wPPC = activityController.popoverPresentationController {
+                    wPPC.sourceView = UIApplication.shared.keyWindow?.rootViewController?.view
+                       // UIApplication.SharedApplication.KeyWindow.RootViewController.View
+                    //  or
+                  //  wPPC.barButtonItem = some bar button item
+                }
                  self.present(activityController, animated: true, completion: nil)
             }
         }
