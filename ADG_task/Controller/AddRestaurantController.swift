@@ -30,6 +30,8 @@ class AddRestaurantController: UITableViewController ,UIImagePickerControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        yesButton.backgroundColor = UIColor.red
+        noButton.backgroundColor = UIColor.gray
     }
     
     

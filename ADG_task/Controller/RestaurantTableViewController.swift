@@ -11,6 +11,7 @@ import RealmSwift
 
 class RestaurantTableViewController: UITableViewController {
     
+    //MARK: Realm object
     let realm = try! Realm()
  
     var restaurants : Results<Restaurant>?
@@ -19,9 +20,10 @@ class RestaurantTableViewController: UITableViewController {
         super.viewDidLoad()
          navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100.0
+       tableView.estimatedRowHeight = 180.0
         
         tableView.reloadData()
+        tableView.separatorStyle = .none
     
     }
     
@@ -90,7 +92,7 @@ class RestaurantTableViewController: UITableViewController {
             }
             self.load()
             tableView.reloadData()
-           //rants.remove(at: indexPath.row)
+          
       
         }
         shareButton.backgroundColor = UIColor(displayP3Red: 82.0/255.0, green: 179.0/255.0, blue: 217.0/255.0, alpha: 1.0)
